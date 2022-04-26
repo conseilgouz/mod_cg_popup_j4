@@ -1,0 +1,19 @@
+/**
+ * @package CG Popup Module for Joomla 4.0
+ * @version 2.1.0 
+ * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+ * @copyright (c) 2021 ConseilGouz. All Rights Reserved.
+ * @author ConseilGouz 
+ */
+.span9 .control-group:nth-of-type(6){
+	float:left;width:50%;
+}
+.span9 .control-group:nth-of-type(7){
+	float:right;width:50%;
+}
+.span9 .control-group:nth-of-type(12){
+	float:left;width:50%;
+}
+.span9 .control-group:nth-of-type(13){
+	float:right;width:50%;
+}
