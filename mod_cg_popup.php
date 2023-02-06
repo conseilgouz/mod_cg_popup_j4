@@ -1,9 +1,9 @@
 <?php
 /**
- * @package CG Popup Module for Joomla 4.0
- * @version 2.1.0
+ * @package CG Popup Module for Joomla 4.x
+ * @version 2.2.0
  * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
- * @copyright (c) 2021 ConseilGouz. All Rights Reserved.
+ * @copyright (c) 2023 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
  *
  */
@@ -11,8 +11,6 @@ defined('_JEXEC') or die;
 use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Helper\ModuleHelper;
-
-HTMLHelper::_('jquery.framework'); // make sure jQuery is loaded
 
 $document = Factory::getDocument();
 $modulefield	= 'media/'.$module->module;
@@ -22,11 +20,13 @@ $moduleclass_sfx = htmlspecialchars($params->get('moduleclass_sfx'));
 $wa = Factory::getApplication()->getDocument()->getWebAssetManager();
 $wa->addInlineStyle($params->get('css_popup'));
 $wa->registerAndUseStyle('popupstyle',$modulefield.'/css/style.css');
+$wa->registerAndUseStyle('animate',$modulefield.'/css/animate.min.css');
 
-$wa->registerAndUseScript('velocity', $modulefield.'/js/velocity.min.js');
-$wa->registerAndUseScript('velocityui', $modulefield.'/js/velocity.ui.min.js');
-$wa->registerAndUseScript('cgpopup', $modulefield.'/js/cg_popup.js');
-
+if ((bool)Factory::getConfig()->get('debug')) { // Mode debug
+	$document->addScript(''.JURI::base(true).'/media/mod_cg_popup/js/cg_popup.js'); 
+} else {
+	$wa->registerAndUseScript('cgpopup', $modulefield.'/js/cg_popup.js');
+}
 $layout = 'default';
 $tag_id = 'sp-popup-'.$module->id;
 $detail = $params->get("detail");

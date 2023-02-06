@@ -1,9 +1,9 @@
 <?php
 /**
-* CG Popup Module  - Joomla 4.0.0 Module 
-* Version			: 2.1.0
+* CG Popup Module  - Joomla 4.x Module 
+* Version			: 2.2.0
 * Package			: CG Popup
-* copyright 		: Copyright (C) 2021 ConseilGouz. All rights reserved.
+* copyright 		: Copyright (C) 2023 ConseilGouz. All rights reserved.
 * license    		: http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
 */
 // No direct access to this file
@@ -16,8 +16,8 @@ use Joomla\CMS\Filesystem\File;
 
 class mod_cg_popupInstallerScript
 {
-	private $min_joomla_version      = '3.9.0';
-	private $min_php_version         = '7.2';
+	private $min_joomla_version      = '4.0.0';
+	private $min_php_version         = '7.4';
 	private $name                    = 'CG Popup';
 	private $exttype                 = 'module';
 	private $extname                 = 'cg_popup';
@@ -81,7 +81,11 @@ class mod_cg_popupInstallerScript
 
 			Folder::delete($f);
 		}
-		$obsloteFiles = [sprintf("%s/modules/mod_%s/helper.php", JPATH_SITE, $this->extname)];
+		$obsloteFiles = [
+			sprintf("%s/modules/mod_%s/helper.php", JPATH_SITE, $this->extname),
+			sprintf("%s/media/mod_%s/js/velocity.min.js", JPATH_SITE, $this->extname),
+			sprintf("%s/media/mod_%s/js/velocity.ui.min.js", JPATH_SITE, $this->extname)
+		];
 		foreach ($obsloteFiles as $file)
 		{
 			if (@is_file($file))
@@ -106,6 +110,20 @@ class mod_cg_popupInstallerScript
 				}
 			}
 		}
+		// remove obsolete update sites
+		$db = Factory::getDbo();
+		$query = $db->getQuery(true)
+			->delete('#__update_sites')
+			->where($db->quoteName('location') . ' like "%432473037d.url-de-test.ws/%"');
+		$db->setQuery($query);
+		$db->execute();
+		// Simple Isotope is now on Github
+		$query = $db->getQuery(true)
+			->delete('#__update_sites')
+			->where($db->quoteName('location') . ' like "%conseilgouz.com/updates/cg_popup%"');
+		$db->setQuery($query);
+		$db->execute();
+		
 	}
 
 	// Check if Joomla version passes minimum requirement

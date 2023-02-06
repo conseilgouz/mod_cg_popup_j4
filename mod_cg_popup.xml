@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" version="4" client="site" method="upgrade">
     <name>CG Popup</name>
-    <creationDate>2021 December</creationDate>
+    <creationDate>2023 February</creationDate>
     <author>ConseilGouz</author>
-    <copyright>Copyright (c) 2021 ConseilGouz</copyright>
+    <copyright>Copyright (c) 2023 ConseilGouz</copyright>
     <license>gpl-2.0.html GNU/GPL</license>
     <authorEmail>pascal.leconte@conseilgouz.com</authorEmail>
     <authorUrl>https://www.conseilgouz.com</authorUrl>
-    <version>2.1.0</version>
+    <version>2.2.0</version>
     <description>CG_XML_DESCRIPTION</description>
     <files>
         <filename module="mod_cg_popup">mod_cg_popup.php</filename>
@@ -54,6 +54,7 @@
 						<option value="">JNONE</option>
 						<option value="delay">CG_DELAY</option>
 						<option value="scroll">CG_SCROLL</option>
+						<option value="exit">CG_EXIT</option>
 				</field>
 				<field showon="trigger:delay" name="sp-delay" type="number" default="0" label="CG_DELAY_LBL" description="CG_DELAY_DESC" min="0" max="1000000" step="1000" />
 				<field showon="trigger:scroll" name="sp-scroll" type="number" default="100" label="CG_SCROLL_LBL" description="CG_SCROLL_DESC" min="0" max="2000" step="10" />
