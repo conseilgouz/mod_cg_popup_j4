@@ -1,6 +1,6 @@
 /**
  * @package CG Popup Module for Joomla 4.X
- * @version 2.2.0 
+ * @version 2.2.2 
  * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
  * @copyright (c) 2023 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
@@ -79,8 +79,10 @@ function go_popup(myid,options) {
 	sp_button = document.querySelector('#le_btn_sp-popup-'+myid);
 	sp_button.style.backgroundColor = options.background;
 	sp_popup.style.opacity = 0; // hide popup
-	sp_popup.style.zIndex = 10000;
-	sp_button.style.zIndex = 10001;
+	sp_popup.style.display = 'none'; // hide popup
+	//sp_popup.style.zIndex = 10000;
+	//sp_button.style.zIndex = 10001;
+	sp_button.style.display = 'none'; // hide popup
 	sp_button.style.opacity = 0; // hide button
 	sp_popup.style.setProperty('--animate-duration', '800ms');
 	sp_button.style.setProperty('--animate-duration', '800ms');
@@ -92,6 +94,7 @@ function go_popup(myid,options) {
 	
     if  (options.trigger != 'exit') { 
 		if ((getCookie($cookieName) != "") || (options.title_button_first == '1') ) { // affichage bouton
+			sp_button.style.display = 'block';
 			sp_button.style.opacity = options.opacity;
 			sp_button.classList.add('animate__animated', 'animate__'+animate_effects[options.speffect]);
 			once[myid] = true;
@@ -123,9 +126,11 @@ function go_popup(myid,options) {
 		sp_popup = document.querySelector('#sp-popup-'+myid);
 		sp_button = document.querySelector('#le_btn_sp-popup-'+myid);
 		sp_popup.style.opacity = 0;
+		sp_popup.style.display = "none";
 		sp_popup.classList.remove('animate__animated','animate__'+animate_effects[options.speffect]);
 		if (options.title_button_popup == 1) { // show title button 
 			sp_button.style.opacity = options.opacity;
+			sp_button.style.display = 'block';
 			sp_button.classList.add('animate__animated', 'animate__'+animate_effects[options.speffect]);
 		};
 		once[myid] = true;
@@ -137,8 +142,10 @@ function go_popup(myid,options) {
 		sp_popup = document.querySelector('#sp-popup-'+myid);
 		sp_button = document.querySelector('#le_btn_sp-popup-'+myid);
 		sp_button.style.opacity = 0; // hide button
+		sp_button.style.display = 'none'; 
 		sp_button.classList.remove('animate__animated','animate__'+animate_effects[options.speffect]);
 		sp_popup.style.opacity = options.opacity;
+		sp_popup.style.display = 'block';
 		sp_popup.classList.add('animate__animated', 'animate__'+animate_effects[options.speffect]);
 		once[myid] = true;
 		btn_clicked[myid] = true;
@@ -154,10 +161,12 @@ function go_popup(myid,options) {
 			setTimeout(function(){
 				sp_popup = document.querySelector('#sp-popup-'+myid);
 				sp_popup.style.opacity = options.opacity;
+				sp_popup.style.display = 'block';
 				sp_popup.classList.add('animate__animated', 'animate__'+animate_effects[options.speffect]);
 			}, options.delay); 
 		} else {
 			sp_popup = document.querySelector('#sp-popup-'+myid);
+			sp_popup.style.display = 'block';
 			sp_popup.style.opacity = options.opacity;
 			sp_popup.classList.add('animate__animated', 'animate__'+animate_effects[options.speffect]);
 		}
@@ -168,14 +177,17 @@ function go_popup(myid,options) {
 			if  (btn_clicked[myid] == true ) { // scroll popup box
 				if ((window.pageYOffset >= options.spscroll) && (window.pageYOffset < options.spscrollmax)) {
 					if (!once[myid]) {
+						sp_popup.style.display = 'block';
 						sp_popup.style.opacity = options.opacity;
 						sp_popup.classList.add('animate__animated', 'animate__'+animate_effects[options.speffect]);
 						sp_button.classList.remove('animate__animated','animate__'+animate_effects[options.speffect]);
 						sp_button.style.opacity = 0;
+						sp_button.style.display = 'block';
 						once[myid] = true;
 					} 
 				} else {
 					sp_popup.style.opacity = 0;
+					sp_popup.style.display = 'none';
 					sp_popup.classList.remove('animate__animated','animate__'+animate_effects[options.speffect]);
 					once[myid] = false;
 				}
@@ -183,16 +195,20 @@ function go_popup(myid,options) {
 				if ((window.pageYOffset >= options.spscroll) && (window.pageYOffset < options.spscrollmax)) {
 					if (!once[myid]) {
 						sp_button.style.opacity = options.opacity;
+						sp_button.style.display = 'block';
 						sp_button.classList.add('animate__animated', 'animate__'+animate_effects[options.speffect]);
 						sp_popup.style.opacity = 0;
+						sp_popup.style.display = 'none';
 						sp_popup.classList.remove('animate__animated','animate__'+animate_effects[options.speffect]);
 						btn_clicked[myid] = false;
 						once[myid] = true;
 					} 
 				} else {
 					sp_popup.style.opacity = 0;
+					sp_popup.style.display = 'none';
 					sp_popup.classList.remove('animate__animated','animate__'+animate_effects[options.speffect]);
 					sp_button.style.opacity = 0;
+					sp_button.style.display = 'none';
 					sp_button.classList.remove('animate__animated','animate__'+animate_effects[options.speffect]);
 					once[myid] = false;
 				}
@@ -208,6 +224,7 @@ function go_popup(myid,options) {
 			if (shouldShowExitIntent) {
 				document.removeEventListener('mouseout', mouseEvent);
 				sp_popup.style.opacity = options.opacity;
+				sp_popup.style.display = 'block';
 				sp_popup.classList.add('animate__animated', 'animate__'+animate_effects[options.speffect]);
 				once[myid] = true;
 			}
