@@ -1,6 +1,6 @@
 /**
  * @package CG Popup Module for Joomla 4.X
- * @version 2.2.2 
+ * @version 2.2.3 
  * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
  * @copyright (c) 2023 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
@@ -115,9 +115,9 @@ function go_popup(myid,options) {
 		sp_button.style.right = '0%';
 	}
 	if (options.pos == 'center') {
-		$center = options.width / 2;
+		$center = (100 - options.width) / 2;
 		sp_popup.style.left = $center+'%';
-		sp_popup.style.left = $center+'%';
+		sp_button.style.left = $center+'%';
 	}
 	close_popup = document.querySelector('.sp-close-popup-'+myid);
 	close_popup.addEventListener("click",function(e){ // close button
@@ -222,6 +222,7 @@ function go_popup(myid,options) {
 		const mouseEvent = e => {
 			const shouldShowExitIntent = !e.toElement && !e.relatedTarget && e.clientY < 10;
 			if (shouldShowExitIntent) {
+				sp_popup = document.querySelector('#sp-popup-'+myid);
 				document.removeEventListener('mouseout', mouseEvent);
 				sp_popup.style.opacity = options.opacity;
 				sp_popup.style.display = 'block';
