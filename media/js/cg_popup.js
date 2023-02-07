@@ -1,6 +1,6 @@
 /**
  * @package CG Popup Module for Joomla 4.X
- * @version 2.2.3 
+ * @version 2.2.5 
  * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
  * @copyright (c) 2023 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
@@ -76,19 +76,18 @@ function go_popup(myid,options) {
 	sp_popup.style.width = options.width+"%";
 	sp_popup.style.backgroundColor = options.background;
 	sp_popup.style.margin = options.margin ;
-	sp_button = document.querySelector('#le_btn_sp-popup-'+myid);
-	sp_button.style.backgroundColor = options.background;
 	sp_popup.style.opacity = 0; // hide popup
 	sp_popup.style.display = 'none'; // hide popup
-	//sp_popup.style.zIndex = 10000;
-	//sp_button.style.zIndex = 10001;
-	sp_button.style.display = 'none'; // hide popup
-	sp_button.style.opacity = 0; // hide button
 	sp_popup.style.setProperty('--animate-duration', '800ms');
-	sp_button.style.setProperty('--animate-duration', '800ms');
-
+	sp_button = document.querySelector('#le_btn_sp-popup-'+myid);
+	if (sp_button) {
+		sp_button.style.backgroundColor = options.background;
+		sp_button.style.display = 'none'; // hide popup
+		sp_button.style.opacity = 0; // hide button
+		sp_button.style.setProperty('--animate-duration', '800ms');
+	}
 	$cookieName = 'cg_popup_'+myid;
-	
+
 	if (options.title_button_popup == '0') options.title_button_first = '0'; // force 0
 	if (options.trigger != 'delay')  options.delay = 0;
 	
@@ -108,35 +107,38 @@ function go_popup(myid,options) {
 	}
 	if (options.pos == 'left') {
 		sp_popup.style.left = '0%';
-		sp_button.style.left = '0%';
+		if (sp_button) sp_button.style.left = '0%';
 	}
 	if (options.pos == 'right') {
 		sp_popup.style.right = '0%';
-		sp_button.style.right = '0%';
+		if (sp_button) sp_button.style.right = '0%';
 	}
 	if (options.pos == 'center') {
 		$center = (100 - options.width) / 2;
 		sp_popup.style.left = $center+'%';
-		sp_button.style.left = $center+'%';
+		if (sp_button) sp_button.style.left = $center+'%';
 	}
 	close_popup = document.querySelector('.sp-close-popup-'+myid);
-	close_popup.addEventListener("click",function(e){ // close button
-		$cookieName = 'cg_popup_'+myid;
-		setCookie($cookieName,"test",options.duration);
-		sp_popup = document.querySelector('#sp-popup-'+myid);
-		sp_button = document.querySelector('#le_btn_sp-popup-'+myid);
-		sp_popup.style.opacity = 0;
-		sp_popup.style.display = "none";
-		sp_popup.classList.remove('animate__animated','animate__'+animate_effects[options.speffect]);
-		if (options.title_button_popup == 1) { // show title button 
-			sp_button.style.opacity = options.opacity;
-			sp_button.style.display = 'block';
-			sp_button.classList.add('animate__animated', 'animate__'+animate_effects[options.speffect]);
-		};
-		once[myid] = true;
-		btn_clicked[myid] = false;
-	});
-	sp_button.addEventListener("click",function(e){ // title button
+	if (close_popup) {
+		close_popup.addEventListener("click",function(e){ // close button
+			$cookieName = 'cg_popup_'+myid;
+			setCookie($cookieName,"test",options.duration);
+			sp_popup = document.querySelector('#sp-popup-'+myid);
+			sp_button = document.querySelector('#le_btn_sp-popup-'+myid);
+			sp_popup.style.opacity = 0;
+			sp_popup.style.display = "none";
+			sp_popup.classList.remove('animate__animated','animate__'+animate_effects[options.speffect]);
+			if (options.title_button_popup == 1) { // show title button 
+				sp_button.style.opacity = options.opacity;
+				sp_button.style.display = 'block';
+				sp_button.classList.add('animate__animated', 'animate__'+animate_effects[options.speffect]);
+			};
+			once[myid] = true;
+			btn_clicked[myid] = false;
+		});
+	}
+	if (sp_button) {
+		sp_button.addEventListener("click",function(e){ // title button
 		$cookieName = 'cg_popup_'+myid;
 		setCookie($cookieName,"test",options.duration);
 		sp_popup = document.querySelector('#sp-popup-'+myid);
@@ -149,7 +151,8 @@ function go_popup(myid,options) {
 		sp_popup.classList.add('animate__animated', 'animate__'+animate_effects[options.speffect]);
 		once[myid] = true;
 		btn_clicked[myid] = true;
-	});
+		});
+	}
 	$date_limit = options.date_popup;
 	if ($date_limit != "") {
 		date_popup = convertDate($date_limit);
@@ -180,9 +183,11 @@ function go_popup(myid,options) {
 						sp_popup.style.display = 'block';
 						sp_popup.style.opacity = options.opacity;
 						sp_popup.classList.add('animate__animated', 'animate__'+animate_effects[options.speffect]);
-						sp_button.classList.remove('animate__animated','animate__'+animate_effects[options.speffect]);
-						sp_button.style.opacity = 0;
-						sp_button.style.display = 'block';
+						if (sp_button) {
+							sp_button.classList.remove('animate__animated','animate__'+animate_effects[options.speffect]);
+							sp_button.style.opacity = 0;
+							sp_button.style.display = 'block';
+						}
 						once[myid] = true;
 					} 
 				} else {
@@ -194,9 +199,11 @@ function go_popup(myid,options) {
 			}  else {
 				if ((window.pageYOffset >= options.spscroll) && (window.pageYOffset < options.spscrollmax)) {
 					if (!once[myid]) {
-						sp_button.style.opacity = options.opacity;
-						sp_button.style.display = 'block';
-						sp_button.classList.add('animate__animated', 'animate__'+animate_effects[options.speffect]);
+						if (sp_button) {
+							sp_button.style.opacity = options.opacity;
+							sp_button.style.display = 'block';
+							sp_button.classList.add('animate__animated', 'animate__'+animate_effects[options.speffect]);
+						}
 						sp_popup.style.opacity = 0;
 						sp_popup.style.display = 'none';
 						sp_popup.classList.remove('animate__animated','animate__'+animate_effects[options.speffect]);
@@ -207,9 +214,11 @@ function go_popup(myid,options) {
 					sp_popup.style.opacity = 0;
 					sp_popup.style.display = 'none';
 					sp_popup.classList.remove('animate__animated','animate__'+animate_effects[options.speffect]);
-					sp_button.style.opacity = 0;
-					sp_button.style.display = 'none';
-					sp_button.classList.remove('animate__animated','animate__'+animate_effects[options.speffect]);
+					if (sp_button) {
+						sp_button.style.opacity = 0;
+						sp_button.style.display = 'none';
+						sp_button.classList.remove('animate__animated','animate__'+animate_effects[options.speffect]);
+					}
 					once[myid] = false;
 				}
 			}
