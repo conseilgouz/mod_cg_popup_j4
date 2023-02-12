@@ -1,7 +1,7 @@
 <?php
 /**
  * @package CG Popup Module for Joomla 4.x
- * @version 2.2.0 
+ * @version 2.2.7 
  * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
  * @copyright (c) 2023 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
@@ -26,7 +26,7 @@ use Joomla\CMS\HTML\HTMLHelper;
 	$class .= " popup-".$pos->horizontal_popup.$moduleclass_sfx."'";
 	$cookieName = 'cg_popup_'.$module->id;
 	$cookieValue = Factory::getApplication()->input->cookie->get($cookieName);
-	echo '<div class="cg_popup_main" data="'.$module->id.'">';
+	echo '<div class="cg_popup_main" id = "cg_popup_'.$module->id.'" data="'.$module->id.'">';
 	if ($params->get('title_button_popup','0') == 1) { // show title button if cookie present
 		echo '<div id="btn_'.$tag_id.'" '.$class.'><button id="le_btn_'.$tag_id.'" class="cg_popup_btn" type="button">'.$module->title.'</button></div>';
 	}

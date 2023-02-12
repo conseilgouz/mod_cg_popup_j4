@@ -1,6 +1,6 @@
 /**
  * @package CG Popup Module for Joomla 4.X
- * @version 2.2.6 
+ * @version 2.2.7 
  * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
  * @copyright (c) 2023 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
@@ -48,26 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		}
 	};
 });
-var css = new function()
-{
-    function addStyleSheet()
-    {
-        let head = document.head;
-        let style = document.createElement("style");
 
-        head.appendChild(style);
-    }
-
-    this.insert = function(rule)
-    {
-        if(document.styleSheets.length == 0) { addStyleSheet(); }
-
-        let sheet = document.styleSheets[document.styleSheets.length - 1];
-        let rules = sheet.rules;
-
-        sheet.insertRule(rule, rules.length);
-    }
-}
 function go_popup(myid) {
 	sp_popup = document.querySelector('#sp-popup-'+myid);
 	sp_button = document.querySelector('#le_btn_sp-popup-'+myid);
@@ -133,6 +114,7 @@ function go_popup(myid) {
 		show_popup(myid);
 		once[myid] = true;
 		btn_clicked[myid] = true;
+		e.stopPropagation();
 		});
 	}
 	$date_limit = options_popup[myid].date_popup;
@@ -192,6 +174,21 @@ function go_popup(myid) {
 				once[myid] = true;
 			}
 		};
+	}
+	if  (options_popup[myid].close_on_click == 1) { // hide popup on click outside
+	// from https://www.w3docs.com/snippets/javascript/how-to-detect-a-click-outside-an-element.html
+		document.addEventListener("click", function(evt) {
+			cg_popup = document.querySelector('#cg_popup_'+myid);
+			targetEl = evt.target; // clicked element      
+			do {
+				if(targetEl == cg_popup) {
+					return;
+				}
+				targetEl = targetEl.parentNode;
+			} while (targetEl);
+        // This is a click outside.
+			hide_popup(myid); 
+		});
 	}
 }
 function show_popup(myid) {

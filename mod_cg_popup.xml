@@ -7,7 +7,7 @@
     <license>gpl-2.0.html GNU/GPL</license>
     <authorEmail>pascal.leconte@conseilgouz.com</authorEmail>
     <authorUrl>https://www.conseilgouz.com</authorUrl>
-    <version>2.2.6</version>
+    <version>2.2.7</version>
     <description>CG_XML_DESCRIPTION</description>
     <files>
         <filename module="mod_cg_popup">mod_cg_popup.php</filename>
@@ -74,6 +74,10 @@
 					<option value="0">JNO</option>
                 </field>
 				<field showon="show_btn_close_popup:1[AND]title_button_popup:1" name="title_button_first" type="radio" default="0" label="TITLE_BUTTON_FIRST_LABEL" description="TITLE_BUTTON_FIRST_DES" class="btn-group">
+                    <option value="1">JYES</option>
+					<option value="0">JNO</option>
+                </field>
+				<field name="close_on_click" type="radio" default="0" label="CLOSE_ON_CLICK_LABEL" description="CLOSE_ON_CLICK_DESC" class="btn-group">
                     <option value="1">JYES</option>
 					<option value="0">JNO</option>
                 </field>

@@ -1,7 +1,7 @@
 <?php
 /**
  * @package CG Popup Module for Joomla 4.x
- * @version 2.2.0
+ * @version 2.2.7
  * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
  * @copyright (c) 2023 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
@@ -44,7 +44,7 @@ $document->addScriptOptions('cg_popup_'.$module->id,
 		,'speffect' => $params->get('sp-effect','fadeIn'),'delay' => $delay,'spscroll' => $params->get('sp-scroll','0'), 'spscrollmax' => $params->get('sp-scroll-max','9999')
 		,'trigger' => $params->get('trigger','none'),'duration' => $params->get('cookie_duration','0'),'date_popup' => $params->get('update_date_popup','') 
 		, 'width' => $width, 'background' => $color, 'margin' => $margin, 'opacity' => $opacity,'pos' => $params->get('position')->vertical_popup
-		, 'title_button_first' =>  $params->get('title_button_first','0') )
+		, 'title_button_first' =>  $params->get('title_button_first','0'), 'close_on_click' => $params->get('close_on_click','0'))
 	);
 require ModuleHelper::getLayoutPath($module->module, $layout);
 ?>
