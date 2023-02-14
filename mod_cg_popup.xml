@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" version="4" client="site" method="upgrade">
     <name>CG Popup</name>
-    <creationDate>2023 February</creationDate>
+    <creationDate>14/02/2023</creationDate>
     <author>ConseilGouz</author>
     <copyright>Copyright (c) 2023 ConseilGouz</copyright>
     <license>gpl-2.0.html GNU/GPL</license>
     <authorEmail>pascal.leconte@conseilgouz.com</authorEmail>
     <authorUrl>https://www.conseilgouz.com</authorUrl>
-    <version>2.2.8</version>
+    <version>2.2.9</version>
     <description>CG_XML_DESCRIPTION</description>
     <files>
         <filename module="mod_cg_popup">mod_cg_popup.php</filename>

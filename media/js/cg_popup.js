@@ -1,6 +1,6 @@
 /**
  * @package CG Popup Module for Joomla 4.X
- * @version 2.2.7 
+ * @version 2.2.9 
  * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
  * @copyright (c) 2023 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
@@ -61,6 +61,7 @@ function go_popup(myid) {
 	sp_popup.style.setProperty('--animate-duration', '800ms');
 	if (sp_button) {
 		sp_button.style.backgroundColor = options_popup[myid].background;
+		sp_button.style.position = "fixed";
 		sp_button.style.display = 'none';
 		sp_button.style.opacity = 0; 
 		sp_button.style.setProperty('--animate-duration', '800ms');
