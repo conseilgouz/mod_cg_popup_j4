@@ -1,7 +1,7 @@
 <?php
 /**
  * @package CG Popup Module for Joomla 4.x
- * @version 2.2.7 
+ * @version 2.2.10 
  * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
  * @copyright (c) 2023 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
@@ -24,11 +24,12 @@ use Joomla\CMS\HTML\HTMLHelper;
 	$class = "class='sp_popup_wrap ";
 	$pos = $params->get('position');
 	$class .= " popup-".$pos->horizontal_popup.$moduleclass_sfx."'";
+	$class_pos = " popup-".$pos->horizontal_popup.$moduleclass_sfx;
 	$cookieName = 'cg_popup_'.$module->id;
 	$cookieValue = Factory::getApplication()->input->cookie->get($cookieName);
 	echo '<div class="cg_popup_main" id = "cg_popup_'.$module->id.'" data="'.$module->id.'">';
 	if ($params->get('title_button_popup','0') == 1) { // show title button if cookie present
-		echo '<div id="btn_'.$tag_id.'" '.$class.'><button id="le_btn_'.$tag_id.'" class="cg_popup_btn" type="button">'.$module->title.'</button></div>';
+		echo '<div id="btn_'.$tag_id.'" '.$class.'><button id="le_btn_'.$tag_id.'" class="cg_popup_btn'.$class_pos.'" type="button">'.$module->title.'</button></div>';
 	}
 	echo '<div id="'.$tag_id.'" '.$class.'><div class="relative">'.$close_popup.$item->text.'</div>';
 	echo '</div>';
