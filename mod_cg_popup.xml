@@ -18,7 +18,7 @@
         <folder>src</folder>
     </files>
 	<namespace path="src">ConseilGouz\Module\CGPopup</namespace>
-	<changelogurl>https://raw.githubusercontent.com/conseilgouz/pkg_cg_popup_j4/master/pkg_cg_popup_changelog.xml</changelogurl>	
+	<changelogurl>https://raw.githubusercontent.com/conseilgouz/mod_cg_popup_j4/master/mod_cg_popup_changelog.xml</changelogurl>	
 	<scriptfile>script.php</scriptfile>
 	<languages>
 		<language tag="en-GB">language/en-GB/mod_cg_popup.ini</language>
@@ -62,8 +62,6 @@
 				<field showon="trigger:delay" name="sp-delay" type="number" default="0" label="CG_DELAY_LBL" description="CG_DELAY_DESC" min="0" max="1000000" step="1000" />
 				<field showon="trigger:scroll" name="sp-scroll" type="number" default="100" label="CG_SCROLL_LBL" description="CG_SCROLL_DESC" min="0" max="2000" step="10" />
 				<field showon="trigger:scroll" name="sp-scroll-max" type="number" default="9999" label="CG_SCROLL_MAX_LBL" description="CG_SCROLL_MAX_DESC" min="0" max="9999" step="10" />
-				<field name="position" label="" type="subform" multiple ="false"
-				formsource="/modules/mod_cg_popup/mod_pos.xml" layout="joomla.form.field.subform.repeatable-table"/>
 				<field name="show_btn_close_popup" type="radio" default="1" label="SHOW_BTN_POPUP_LABEL" description="SHOW_BTN_POPUP_DES" class="btn-group">
                     <option value="1">JYES</option>
 					<option value="0">JNO</option>
@@ -83,6 +81,8 @@
                     <option value="1">JYES</option>
 					<option value="0">JNO</option>
                 </field>
+				<field name="position" label="" type="subform" multiple ="false"
+				formsource="/modules/mod_cg_popup/mod_pos.xml" layout="joomla.form.field.subform.repeatable-table"/>
 				<field name="detail" label="" type="subform" multiple ="false" layout="joomla.form.field.subform.repeatable-table"
 				formsource="/modules/mod_cg_popup/mod_detail.xml" />
 			
@@ -126,4 +126,8 @@
 			
         </fields>
     </config>
+ <updateservers>
+	<server type="extension" name="CG Popup" priority="1">https://raw.githubusercontent.com/conseilgouz/updates_github/master/mod_cg_popup_update.xml</server>
+ </updateservers>
+	
 </extension>

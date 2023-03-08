@@ -1,0 +1,169 @@
+<changelogs>
+	<changelog>
+		<element>mod_cg_popup</element>
+		<type>package</type>
+		<version>2.3.0</version>
+        <note>
+            <item>Update : 08/03/2023</item>
+        </note>
+		<remove>	
+			<item>Remove Conseilgouz Layout</item>
+		</remove>
+		<addition>
+			<item>Implement version parameter in xml</item>
+		</addition>
+	</changelog>
+	<changelog>
+		<element>mod_cg_popup</element>
+		<type>package</type>
+		<version>2.2.10</version>
+        <note>
+            <item>Update : 14/02/2023</item>
+        </note>
+		<fix>
+			<item>Fix button's vertical position</item>
+		</fix>
+	</changelog>
+	<changelog>
+		<element>mod_cg_popup</element>
+		<type>package</type>
+		<version>2.2.9</version>
+        <note>
+            <item>Update : 14/02/2023</item>
+        </note>
+		<fix>
+			<item>Fix button position</item>
+		</fix>
+	</changelog>
+	<changelog>
+		<element>mod_cg_popup</element>
+		<type>package</type>
+		<version>2.2.8</version>
+        <note>
+            <item>Update : 12/02/2023</item>
+        </note>
+		<fix>
+			<item>Show/hide inline help in subforms</item>
+		</fix>
+	</changelog>
+	<changelog>
+		<element>mod_cg_popup</element>
+		<type>package</type>
+		<version>2.2.7</version>
+        <note>
+            <item>Update : 12/02/2023</item>
+        </note>
+		<addition>
+			<item>Close popup on click outside</item>
+		</addition>
+	</changelog>
+	<changelog>
+		<element>mod_cg_popup</element>
+		<type>package</type>
+		<version>2.2.6</version>
+        <note>
+            <item>Update : 08/02/2023</item>
+        </note>
+		<change>
+			<item>Clean up cg_popup.js</item>
+		</change>
+	</changelog>
+	<changelog>
+		<element>mod_cg_popup</element>
+		<type>package</type>
+		<version>2.2.5</version>
+        <note>
+            <item>Update : 07/02/2023</item>
+        </note>
+		<fix>
+			<item>Error if show title is set to no</item>
+			<item>Error if show close button set to no</item>
+		</fix>
+	</changelog>
+	<changelog>
+		<element>mod_cg_popup</element>
+		<type>package</type>
+		<version>2.2.4</version>
+        <note>
+            <item>Update : 07/02/2023</item>
+        </note>
+		<fix>
+			<item>Module's version error</item>
+		</fix>
+	</changelog>
+	<changelog>
+		<element>mod_cg_popup</element>
+		<type>package</type>
+		<version>2.2.3</version>
+        <note>
+            <item>Update : 07/02/2023</item>
+        </note>
+		<fix>
+			<item>Popup centering</item>
+			<item>On exit when multiple popups defined</item>
+		</fix>
+	</changelog>
+	<changelog>
+		<element>mod_cg_popup</element>
+		<type>package</type>
+		<version>2.2.2</version>
+        <note>
+            <item>Update : 05/02/2023</item>
+        </note>
+		<fix>
+			<item>Remove zindex</item>
+		</fix>
+	</changelog>
+	<changelog>
+		<element>mod_cg_popup</element>
+		<type>package</type>
+		<version>2.2.1</version>
+        <note>
+            <item>Update : 05/02/2023</item>
+        </note>
+		<fix>
+			<item>Packaging error</item>
+		</fix>
+	</changelog>
+	<changelog>
+		<element>mod_cg_popup</element>
+		<type>package</type>
+		<version>2.2.0</version>
+        <note>
+            <item>Update : 05/02/2023</item>
+        </note>
+        <remove>
+            <item>Remove JQuery dependancy</item>
+            <item>Remove Velocity dependancy</item>
+        </remove>
+		<addition>
+            <item>Use Animate.css</item>
+			<item>New option : show on exit</item>
+		</addition>
+		<change>
+			<item>Updates/changelog on github</item>
+		</change>
+	</changelog>
+	<changelog>
+		<element>mod_cg_popup</element>
+		<type>package</type>
+		<version>2.1.0</version>
+        <note>
+            <item>Update : 21/12/2021</item>
+        </note>
+        <addition>
+            <item>Phoca collapse compatibility</item>
+        </addition>
+	</changelog>
+	<changelog>
+		<element>mod_cg_popup</element>
+		<type>package</type>
+		<version>2.0.0</version>
+        <note>
+            <item>Update : 02/10/2021</item>
+        </note>
+        <addition>
+            <item>Joomla 4.0 compatibility</item>
+        </addition>
+	</changelog>
+</changelogs>
