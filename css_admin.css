@@ -1,21 +1,9 @@
 /**
  * @package CG Popup Module for Joomla 4.x
- * @version 2.2.0 
+ * @version 2.3.0 
  * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
  * @copyright (c) 2023 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
  */
-.span9 .control-group:nth-of-type(6){
-	float:left;width:50%;
-}
-.span9 .control-group:nth-of-type(7){
-	float:right;width:50%;
-}
-.span9 .control-group:nth-of-type(12){
-	float:left;width:50%;
-}
-.span9 .control-group:nth-of-type(13){
-	float:right;width:50%;
-}
-.subform-table-layout td, .subform-table-layout th {background-color:aliceblue !important}
-#subfieldList_jform_params_detail th:nth-of-type(2) {width:0 !important} // hidden field
+#general .subform-table-layout td, #general .subform-table-layout th {background-color:aliceblue !important}
+#subfieldList_jform_params_detail th:nth-of-type(2) {width:0 !important} /* hidden field */

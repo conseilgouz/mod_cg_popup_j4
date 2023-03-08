@@ -5,9 +5,6 @@
 	</config>
      <fieldset name="section1">
 		<field name="width_popup" type="number" default="100" label="WIDTH_POPUP_LABEL" description="WIDTH_POPUP_DES" min="0" max="100" step="1"/>
-		<field name="margin_popup" type="hidden" default="0px,0px,0px,0px" label="" description="" />
-	</fieldset>
-    <fieldset name="section2">
 		<field name="color_popup" type="color" format="rgba" default="rgba(255, 99, 132, 1)" label="COLOR_POPUP_LABEL" description="COLOR_POPUP_DES"/>
 		<field name="opacity_popup" type="text" default="0.9" label="OPACITY_POPUP_LABEL" description="OPACITY_POPUP_DES"/>
 	</fieldset>

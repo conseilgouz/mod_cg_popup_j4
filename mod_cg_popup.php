@@ -31,7 +31,7 @@ $layout = 'default';
 $tag_id = 'sp-popup-'.$module->id;
 $detail = $params->get("detail");
 $width = $detail->width_popup;
-$margin = str_replace(',',' ',$detail->margin_popup);
+$margin = '0px 0px 0px 0px;'; // hidden parameter str_replace(',',' ',$detail->margin_popup);
 $opacity = $detail->opacity_popup;
 $color = $detail->color_popup;
 

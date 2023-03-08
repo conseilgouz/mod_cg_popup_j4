@@ -36,7 +36,7 @@
     <config>
         <fields name="params" addfieldpath="">
             <fieldset name="basic" addfieldprefix="ConseilGouz\Module\CGPopup\Site\Field">
-				<field name="version" type="version" extension="CGPopup" xml="/modules/mod_cg_popup/mod_cg_popup.xml"/>
+				<field name="version" type="version"  margintop="-3em" extension="mod_cg_popup"/>
 				<field name="sp-effect" type="list" default="fadeIn" label="SP_EFFECT_LABEL" description="SP_EFFECT_DES" >
 				<option value="fadeIn">fadeIn</option>
 				<option value="flipXIn">flipXIn</option>
