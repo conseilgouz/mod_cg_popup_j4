@@ -84,7 +84,8 @@ class mod_cg_popupInstallerScript
 		$obsloteFiles = [
 			sprintf("%s/modules/mod_%s/helper.php", JPATH_SITE, $this->extname),
 			sprintf("%s/media/mod_%s/js/velocity.min.js", JPATH_SITE, $this->extname),
-			sprintf("%s/media/mod_%s/js/velocity.ui.min.js", JPATH_SITE, $this->extname)
+			sprintf("%s/media/mod_%s/js/velocity.ui.min.js", JPATH_SITE, $this->extname),
+			sprintf(JPATH_ADMINISTRATOR.'/manifests/packages/pkg_cg_popup.xml')
 		];
 		foreach ($obsloteFiles as $file)
 		{
@@ -117,10 +118,22 @@ class mod_cg_popupInstallerScript
 			->where($db->quoteName('location') . ' like "%432473037d.url-de-test.ws/%"');
 		$db->setQuery($query);
 		$db->execute();
-		// Simple Isotope is now on Github
+		// CG Popup is now on Github and is a module, not a package anymore
 		$query = $db->getQuery(true)
 			->delete('#__update_sites')
-			->where($db->quoteName('location') . ' like "%conseilgouz.com/updates/cg_popup%"');
+			->where($db->quoteName('location') . ' like "%conseilgouz.com/updates/cg_popup%" OR '.$db->quoteName('location') . ' like "%pkg_cg_popup.xml"');
+		$db->setQuery($query);
+		$db->execute();
+		// remove packag infos
+		$query = $db->getQuery(true)
+			->delete('#__extensions')
+			->where($db->quoteName('element') . ' like "pkg_cg_popup" OR '.$db->quoteName('element') . ' like "pkg_CGPopup"');
+		$db->setQuery($query);
+		$db->execute();
+		$query = $db->getQuery(true)
+			->update('#__extensions')
+			->set($db->quoteName('package_id').'=0')
+			->where($db->quoteName('element') . ' like "mod_cg_popup"');
 		$db->setQuery($query);
 		$db->execute();
 		
