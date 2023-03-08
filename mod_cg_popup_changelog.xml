@@ -1,7 +1,7 @@
 <changelogs>
 	<changelog>
 		<element>mod_cg_popup</element>
-		<type>package</type>
+		<type>module</type>
 		<version>2.3.0</version>
         <note>
             <item>Update : 08/03/2023</item>
