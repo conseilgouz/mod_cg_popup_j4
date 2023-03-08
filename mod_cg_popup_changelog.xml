@@ -6,6 +6,9 @@
         <note>
             <item>Update : 08/03/2023</item>
         </note>
+		<change>
+			<item>CG popup is not a package anymore</item>
+		</change>
 		<remove>	
 			<item>Remove Conseilgouz Layout</item>
 		</remove>
