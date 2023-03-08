@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" version="4" client="site" method="upgrade">
     <name>CG Popup</name>
-    <creationDate>2023-02-14</creationDate>
+    <creationDate>2023-03-08</creationDate>
     <author>ConseilGouz</author>
     <copyright>Copyright (c) 2023 ConseilGouz</copyright>
     <license>gpl-2.0.html GNU/GPL</license>
     <authorEmail>pascal.leconte@conseilgouz.com</authorEmail>
     <authorUrl>https://www.conseilgouz.com</authorUrl>
-    <version>2.2.10</version>
+    <version>2.3.0</version>
     <description>CG_XML_DESCRIPTION</description>
     <files>
         <filename module="mod_cg_popup">mod_cg_popup.php</filename>
@@ -15,6 +15,7 @@
         <filename>mod_pos.xml</filename>
 		<filename>css_admin.css</filename>
         <folder>tmpl</folder>
+        <folder>src</folder>
     </files>
 	<namespace path="src">ConseilGouz\Module\CGPopup</namespace>
 	<changelogurl>https://raw.githubusercontent.com/conseilgouz/pkg_cg_popup_j4/master/pkg_cg_popup_changelog.xml</changelogurl>	
@@ -34,7 +35,8 @@
 	
     <config>
         <fields name="params" addfieldpath="">
-            <fieldset name="basic">
+            <fieldset name="basic" addfieldprefix="ConseilGouz\Module\CGPopup\Site\Field">
+				<field name="version" type="version" extension="CGPopup" xml="/modules/mod_cg_popup/mod_cg_popup.xml"/>
 				<field name="sp-effect" type="list" default="fadeIn" label="SP_EFFECT_LABEL" description="SP_EFFECT_DES" >
 				<option value="fadeIn">fadeIn</option>
 				<option value="flipXIn">flipXIn</option>
@@ -61,7 +63,7 @@
 				<field showon="trigger:scroll" name="sp-scroll" type="number" default="100" label="CG_SCROLL_LBL" description="CG_SCROLL_DESC" min="0" max="2000" step="10" />
 				<field showon="trigger:scroll" name="sp-scroll-max" type="number" default="9999" label="CG_SCROLL_MAX_LBL" description="CG_SCROLL_MAX_DESC" min="0" max="9999" step="10" />
 				<field name="position" label="" type="subform" multiple ="false"
-				formsource="/modules/mod_cg_popup/mod_pos.xml" layout="conseilgouz.conseilgouz-table"/>
+				formsource="/modules/mod_cg_popup/mod_pos.xml" layout="joomla.form.field.subform.repeatable-table"/>
 				<field name="show_btn_close_popup" type="radio" default="1" label="SHOW_BTN_POPUP_LABEL" description="SHOW_BTN_POPUP_DES" class="btn-group">
                     <option value="1">JYES</option>
 					<option value="0">JNO</option>
@@ -81,8 +83,8 @@
                     <option value="1">JYES</option>
 					<option value="0">JNO</option>
                 </field>
-				<field name="detail" label="" type="subform" multiple ="false"
-				formsource="/modules/mod_cg_popup/mod_detail.xml" layout="conseilgouz.conseilgouz-table"/>
+				<field name="detail" label="" type="subform" multiple ="false" layout="joomla.form.field.subform.repeatable-table"
+				formsource="/modules/mod_cg_popup/mod_detail.xml" />
 			
 				<field name="css_popup" type="textarea" label="CSS_POPUP_LABEL" description="CSS_POPUP_DES" cols="40" rows="4" filter="raw" 
 					default=".sp-popup .relative{ height:auto;width:100%;overflow:hidden;        } 

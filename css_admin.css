@@ -17,3 +17,5 @@
 .span9 .control-group:nth-of-type(13){
 	float:right;width:50%;
 }
+.subform-table-layout td, .subform-table-layout th {background-color:aliceblue !important}
+#subfieldList_jform_params_detail th:nth-of-type(2) {width:0 !important} // hidden field
