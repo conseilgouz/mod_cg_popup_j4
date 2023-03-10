@@ -1,0 +1,15 @@
+/**
+ * @package CG Popup Module for Joomla 4.x
+ * @version 2.3.1 
+ * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+ * @copyright (c) 2023 ConseilGouz. All Rights Reserved.
+ * @author ConseilGouz 
+ */
+#general .subform-table-layout td, #general .subform-table-layout th {background-color:aliceblue !important}
+#subfieldList_jform_params_detail th:nth-of-type(2) {width:0 !important} /* hidden field */
+/* 2.3.1 : color selector partially hidden in subform */
+#general .minicolors-focus .minicolors-panel{
+	display:contents !important
+}
+#general .minicolors-slider {top: inherit !important}
+/* 2.3.1 end */

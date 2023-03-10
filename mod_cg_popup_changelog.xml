@@ -2,6 +2,21 @@
 	<changelog>
 		<element>mod_cg_popup</element>
 		<type>module</type>
+		<version>2.3.1</version>
+        <note>
+            <item>Update : 10/03/2023</item>
+        </note>
+		<change>
+			<item>Move CSS amin to media folder</item>
+		</change>
+		<fix>
+			<item>Color selector partially hidden</item>
+			<item>Color selector to rgb instead of rgba</item>
+		</fix>
+	</changelog>
+	<changelog>
+		<element>mod_cg_popup</element>
+		<type>module</type>
 		<version>2.3.0</version>
         <note>
             <item>Update : 08/03/2023</item>

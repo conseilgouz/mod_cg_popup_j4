@@ -1,7 +1,7 @@
 <?php
 /**
 * CG Popup Module  - Joomla 4.x Module 
-* Version			: 2.2.0
+* Version			: 2.3.1
 * Package			: CG Popup
 * copyright 		: Copyright (C) 2023 ConseilGouz. All rights reserved.
 * license    		: http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
@@ -83,6 +83,7 @@ class mod_cg_popupInstallerScript
 		}
 		$obsloteFiles = [
 			sprintf("%s/modules/mod_%s/helper.php", JPATH_SITE, $this->extname),
+			sprintf("%s/modules/mod_%s/css_admin.css", JPATH_SITE, $this->extname),
 			sprintf("%s/media/mod_%s/js/velocity.min.js", JPATH_SITE, $this->extname),
 			sprintf("%s/media/mod_%s/js/velocity.ui.min.js", JPATH_SITE, $this->extname),
 			sprintf(JPATH_ADMINISTRATOR.'/manifests/packages/pkg_cg_popup.xml')
