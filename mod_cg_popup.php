@@ -1,7 +1,7 @@
 <?php
 /**
  * @package CG Popup Module for Joomla 4.x
- * @version 2.2.7
+ * @version 2.3.2
  * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
  * @copyright (c) 2023 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
@@ -15,10 +15,10 @@ use Joomla\CMS\Helper\ModuleHelper;
 $document = Factory::getDocument();
 $modulefield	= 'media/'.$module->module;
 // Get module sfx class
-$moduleclass_sfx = htmlspecialchars($params->get('moduleclass_sfx'));
+$moduleclass_sfx = htmlspecialchars($params->get('moduleclass_sfx',''));
 /** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
 $wa = Factory::getApplication()->getDocument()->getWebAssetManager();
-$wa->addInlineStyle($params->get('css_popup'));
+$wa->addInlineStyle($params->get('css_popup',''));
 $wa->registerAndUseStyle('popupstyle',$modulefield.'/css/style.css');
 $wa->registerAndUseStyle('animate',$modulefield.'/css/animate.min.css');
 
@@ -29,7 +29,7 @@ if ((bool)Factory::getConfig()->get('debug')) { // Mode debug
 }
 $layout = 'default';
 $tag_id = 'sp-popup-'.$module->id;
-$detail = $params->get("detail");
+$detail = $params->get("detail",'');
 $width = $detail->width_popup;
 $margin = '0px 0px 0px 0px;'; // hidden parameter str_replace(',',' ',$detail->margin_popup);
 $opacity = $detail->opacity_popup;

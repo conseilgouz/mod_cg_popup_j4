@@ -1,7 +1,7 @@
 <?php
 /**
  * @package CG Popup Module for Joomla 4.x
- * @version 2.2.10 
+ * @version 2.3.2 
  * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
  * @copyright (c) 2023 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
@@ -12,11 +12,11 @@ use Joomla\CMS\HTML\HTMLHelper;
 
 	$app = Factory::getApplication(); 
 	$item = new \stdClass;
-	$item->text = $params->get('content_popup');
+	$item->text = $params->get('content_popup','');
 	$item->params = $params;
 	$app->triggerEvent('onContentPrepare', array ('com_content.article', &$item, &$item->params, 0));
 	$tag_id = 'sp-popup-'.$module->id;
-	if($params->get('show_btn_close_popup') == 1){
+	if($params->get('show_btn_close_popup','0') == 1){
 		$close_popup = '<div class="sp-close-popup sp-close-popup-'.$module->id.'"></div>';
 	}else{
 		$close_popup = '';
