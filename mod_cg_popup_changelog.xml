@@ -2,6 +2,16 @@
 	<changelog>
 		<element>mod_cg_popup</element>
 		<type>module</type>
+		<version>2.3.3</version>
+        <note>
+            <item>Update : 31/07/2023</item>
+        </note>
+		<fix>
+			<item>Joomla 5.x compatibility</item>
+		</fix>
+	<changelog>
+		<element>mod_cg_popup</element>
+		<type>module</type>
 		<version>2.3.2</version>
         <note>
             <item>Update : 01/05/2023</item>

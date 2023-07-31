@@ -1,7 +1,7 @@
 <?php
 /**
- * @package CG Popup Module for Joomla 4.x
- * @version 2.3.2
+ * @package CG Popup Module for Joomla 4.x/5.x
+ * @version 2.3.3
  * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
  * @copyright (c) 2023 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
@@ -11,6 +11,7 @@ defined('_JEXEC') or die;
 use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Helper\ModuleHelper;
+use Joomla\CMS\Uri\Uri;
 
 $document = Factory::getDocument();
 $modulefield	= 'media/'.$module->module;
@@ -23,7 +24,7 @@ $wa->registerAndUseStyle('popupstyle',$modulefield.'/css/style.css');
 $wa->registerAndUseStyle('animate',$modulefield.'/css/animate.min.css');
 
 if ((bool)Factory::getConfig()->get('debug')) { // Mode debug
-	$document->addScript(''.JURI::base(true).'/media/mod_cg_popup/js/cg_popup.js'); 
+	$document->addScript(''.URI::base(true).'/media/mod_cg_popup/js/cg_popup.js'); 
 } else {
 	$wa->registerAndUseScript('cgpopup', $modulefield.'/js/cg_popup.js');
 }
@@ -40,7 +41,7 @@ if ($params->get('trigger','none') == 'delay') {
 	$delay = $params->get('sp-delay','0') ;
 }
 $document->addScriptOptions('cg_popup_'.$module->id, 
-	array('id' => $module->id,'current' => JURI::current(),'title_button_popup' => $params->get('title_button_popup','')
+	array('id' => $module->id,'current' => URI::current(),'title_button_popup' => $params->get('title_button_popup','')
 		,'speffect' => $params->get('sp-effect','fadeIn'),'delay' => $delay,'spscroll' => $params->get('sp-scroll','0'), 'spscrollmax' => $params->get('sp-scroll-max','9999')
 		,'trigger' => $params->get('trigger','none'),'duration' => $params->get('cookie_duration','0'),'date_popup' => $params->get('update_date_popup','') 
 		, 'width' => $width, 'background' => $color, 'margin' => $margin, 'opacity' => $opacity,'pos' => $params->get('position')->vertical_popup

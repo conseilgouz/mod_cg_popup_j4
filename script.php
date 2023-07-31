@@ -10,9 +10,9 @@
 defined('_JEXEC') or die;
 use Joomla\CMS\Factory;
 use Joomla\CMS\Language\Text;
-use Joomla\CMS\Filesystem\Folder;
+use Joomla\Filesystem\Folder;
 use Joomla\CMS\Version;
-use Joomla\CMS\Filesystem\File;
+use Joomla\Filesystem\File;
 
 class mod_cg_popupInstallerScript
 {
@@ -24,6 +24,8 @@ class mod_cg_popupInstallerScript
 	private $previous_version        = '';
 	private $dir           = null;
 	private $installerName = 'cg_popupinstaller';
+	private $lang;
+	
 	public function __construct()
 	{
 		$this->dir = __DIR__;
@@ -175,7 +177,7 @@ class mod_cg_popupInstallerScript
 	}
 	private function uninstallInstaller()
 	{
-		if ( ! JFolder::exists(JPATH_PLUGINS . '/system/' . $this->installerName)) {
+		if ( ! is_dir(JPATH_PLUGINS . '/system/' . $this->installerName)) {
 			return;
 		}
 		$this->delete([
