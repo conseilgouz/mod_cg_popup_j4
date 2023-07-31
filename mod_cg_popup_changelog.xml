@@ -9,6 +9,7 @@
 		<fix>
 			<item>Joomla 5.x compatibility</item>
 		</fix>
+	</changelog>
 	<changelog>
 		<element>mod_cg_popup</element>
 		<type>module</type>
