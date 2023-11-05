@@ -1,7 +1,7 @@
 /**
- * @package CG Popup Module for Joomla 4.X
- * @version 2.2.9 
- * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+ * @package CG Popup Module for Joomla 4.X/5.x
+ * @version 2.4.0 
+ * @license https://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
  * @copyright (c) 2023 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
  * using https://animate.style/
@@ -24,15 +24,11 @@ animate_effects["perspectiveDownIn"] = "fadeInDownBig";
 animate_effects["perspectiveLeftIn"] ="fadeInLeftBig";
 animate_effects["perspectiveRightIn"] = "fadeInRightBig";
 
-	
-if (typeof Joomla === 'undefined' || typeof Joomla.getoptions === 'undefined') {
-	console.log('Joomla.getoptions not found! The Joomla core.js file is not being loaded.');
-}
 document.addEventListener('DOMContentLoaded', function() {
-	mains = document.querySelectorAll('.cg_popup_main');
+	let mains = document.querySelectorAll('.cg_popup_main');
 	for(var i=0; i< mains.length; i++) {
-		var $this = mains[i];
-		var myid = $this.getAttribute("data");
+		let $this = mains[i];
+		let myid = $this.getAttribute("data");
 		once[myid] = false;
 		btn_clicked[myid] = false;
 		if (typeof Joomla === 'undefined' || typeof Joomla.getOptions === 'undefined') {
@@ -50,9 +46,9 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function go_popup(myid) {
-	sp_popup = document.querySelector('#sp-popup-'+myid);
-	sp_button = document.querySelector('#le_btn_sp-popup-'+myid);
-	close_popup = document.querySelector('.sp-close-popup-'+myid);
+	let sp_popup = document.querySelector('#sp-popup-'+myid);
+	let sp_button = document.querySelector('#le_btn_sp-popup-'+myid);
+	let close_popup = document.querySelector('.sp-close-popup-'+myid);
 	sp_popup.style.width = options_popup[myid].width+"%";
 	sp_popup.style.backgroundColor = options_popup[myid].background;
 	sp_popup.style.margin = options_popup[myid].margin ;
@@ -66,7 +62,7 @@ function go_popup(myid) {
 		sp_button.style.opacity = 0; 
 		sp_button.style.setProperty('--animate-duration', '800ms');
 	}
-	$cookieName = 'cg_popup_'+myid;
+	let $cookieName = 'cg_popup_'+myid;
 	if (options_popup[myid].title_button_popup == '0') options_popup[myid].title_button_first = '0'; // force 0
 	if (options_popup[myid].trigger != 'delay')  options_popup[myid].delay = 0;
 	
@@ -118,9 +114,9 @@ function go_popup(myid) {
 		e.stopPropagation();
 		});
 	}
-	$date_limit = options_popup[myid].date_popup;
+	let $date_limit = options_popup[myid].date_popup;
 	if ($date_limit != "") {
-		date_popup = convertDate($date_limit);
+		let date_popup = convertDate($date_limit);
 		date_cookie = getCookie("cg_popup_"+myid);
 		if (( date_cookie != "") && (date_popup >  date_cookie)) { deleteCookie('cg_popup_'+myid) }
 	}
@@ -179,7 +175,7 @@ function go_popup(myid) {
 	if  (options_popup[myid].close_on_click == 1) { // hide popup on click outside
 	// from https://www.w3docs.com/snippets/javascript/how-to-detect-a-click-outside-an-element.html
 		document.addEventListener("click", function(evt) {
-			cg_popup = document.querySelector('#cg_popup_'+myid);
+			let cg_popup = document.querySelector('#cg_popup_'+myid);
 			targetEl = evt.target; // clicked element      
 			do {
 				if(targetEl == cg_popup) {
@@ -193,26 +189,26 @@ function go_popup(myid) {
 	}
 }
 function show_popup(myid) {
-	sp_popup = document.querySelector('#sp-popup-'+myid);
+	let sp_popup = document.querySelector('#sp-popup-'+myid);
 	sp_popup.style.opacity = options_popup[myid].opacity;
 	sp_popup.style.display = 'block';
 	sp_popup.classList.add('animate__animated', 'animate__'+animate_effects[options_popup[myid].speffect]);	
 }
 function hide_popup(myid) {
-	sp_popup = document.querySelector('#sp-popup-'+myid);
+	let sp_popup = document.querySelector('#sp-popup-'+myid);
 	sp_popup.style.opacity = 0;
 	sp_popup.style.display = "none";
 	sp_popup.classList.remove('animate__animated','animate__'+animate_effects[options_popup[myid].speffect]);
 }
 function show_button(myid) {
-	sp_button = document.querySelector('#le_btn_sp-popup-'+myid);
+	let sp_button = document.querySelector('#le_btn_sp-popup-'+myid);
 	if (!sp_button) return; // not defined : exit
 	sp_button.style.opacity = options_popup[myid].opacity;
 	sp_button.style.display = 'block';
 	sp_button.classList.add('animate__animated', 'animate__'+animate_effects[options_popup[myid].speffect]);
 }
 function hide_button(myid) {
-	sp_button = document.querySelector('#le_btn_sp-popup-'+myid);
+	let sp_button = document.querySelector('#le_btn_sp-popup-'+myid);
 	if (!sp_button) return; // not defined : exit
 	sp_button.style.opacity = 0; // hide button
 	sp_button.style.display = 'none'; 
@@ -226,10 +222,10 @@ function getCookie(name) {
 }	
 function pad(s) { return (s < 10) ? '0' + s : s; }
 function setCookie(cname, cvalue, exdays) {
-    var d = new Date();
+    let d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    var expires = "expires="+ d.toUTCString();
-	var now = new Date().getFullYear() + "-" + pad(new Date().getMonth() + 1) + "-" + pad(new Date().getDate());
+    let expires = "expires="+ d.toUTCString();
+	let now = new Date().getFullYear() + "-" + pad(new Date().getMonth() + 1) + "-" + pad(new Date().getDate());
 	$secure = "";
 	if (window.location.protocol == "https:") $secure="secure;"; 
     document.cookie = cname + "=" + now + ";" + expires + ";path=/; samesite=lax;"+$secure;
@@ -238,6 +234,6 @@ function deleteCookie(cname) {
 	document.cookie = cname + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 }
 function convertDate(inputFormat) {
-  var d = inputFormat.split('-');
+  let d = inputFormat.split('-');
   return d[2] + '-' + d[1] + '-' + d[0];
 }
