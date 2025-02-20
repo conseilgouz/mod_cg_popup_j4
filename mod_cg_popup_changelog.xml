@@ -2,6 +2,17 @@
 	<changelog>
 		<element>mod_cg_popup</element>
 		<type>module</type>
+		<version>2.5.2</version>
+        <note>
+            <item>Update : 20/02/2025</item>
+        </note>
+		<fix>
+			<item>Wrong css_admin in subform</item>
+		</fix>
+	</changelog>
+	<changelog>
+		<element>mod_cg_popup</element>
+		<type>module</type>
 		<version>2.5.1</version>
         <note>
             <item>Update : 20/02/2025</item>

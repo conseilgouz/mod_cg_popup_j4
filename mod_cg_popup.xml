@@ -7,7 +7,7 @@
     <license>gpl-3.0.html GNU/GPL</license>
     <authorEmail>pascal.leconte@conseilgouz.com</authorEmail>
     <authorUrl>https://www.conseilgouz.com</authorUrl>
-    <version>2.5.1</version>
+    <version>2.5.2</version>
     <description>CG_XML_DESCRIPTION</description>
 	<namespace path="src">ConseilGouz\Module\CGPopup</namespace>
 	<changelogurl>https://raw.githubusercontent.com/conseilgouz/mod_cg_popup_j4/master/mod_cg_popup_changelog.xml</changelogurl>	
