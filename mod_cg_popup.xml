@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" version="4" client="site" method="upgrade">
     <name>CG Popup</name>
-    <creationDate>2023-11-05</creationDate>
+    <creationDate>2025-02-20</creationDate>
     <author>ConseilGouz</author>
-    <copyright>Copyright (c) 2023 ConseilGouz</copyright>
+    <copyright>Copyright (c) 2025 ConseilGouz</copyright>
     <license>gpl-3.0.html GNU/GPL</license>
     <authorEmail>pascal.leconte@conseilgouz.com</authorEmail>
     <authorUrl>https://www.conseilgouz.com</authorUrl>
-    <version>2.4.0</version>
+    <version>2.5.0</version>
     <description>CG_XML_DESCRIPTION</description>
-    <files>
-        <filename module="mod_cg_popup">mod_cg_popup.php</filename>
-		<filename>mod_detail.xml</filename>
-        <filename>mod_pos.xml</filename>
-        <folder>tmpl</folder>
-        <folder>src</folder>
-    </files>
 	<namespace path="src">ConseilGouz\Module\CGPopup</namespace>
 	<changelogurl>https://raw.githubusercontent.com/conseilgouz/mod_cg_popup_j4/master/mod_cg_popup_changelog.xml</changelogurl>	
 	<scriptfile>script.php</scriptfile>
+    <files>
+        <folder module="mod_cg_popup">services</folder>
+		<filename>mod_detail.xml</filename>
+        <filename>mod_pos.xml</filename>
+        <folder>tmpl</folder>
+        <folder>layouts</folder>
+        <folder>src</folder>
+    </files>
 	<languages>
 		<language tag="en-GB">language/en-GB/mod_cg_popup.ini</language>
 		<language tag="eb-GB">language/en-GB/mod_cg_popup.sys.ini</language>
@@ -34,8 +35,8 @@
 	
     <config>
         <fields name="params" addfieldpath="">
-            <fieldset name="basic" addfieldprefix="ConseilGouz\Module\CGPopup\Site\Field">
-				<field name="version" type="version"  margintop="-3em" extension="mod_cg_popup"/>
+            <fieldset name="params" addfieldprefix="ConseilGouz\Module\CGPopup\Site\Field">
+				<field name="version" type="version"  margintop="-5em" extension="mod_cg_popup"/>
 				<field name="sp-effect" type="list" default="fadeIn" label="SP_EFFECT_LABEL" description="SP_EFFECT_DES" >
 				<option value="fadeIn">fadeIn</option>
 				<option value="flipXIn">flipXIn</option>
@@ -58,14 +59,27 @@
 						<option value="scroll">CG_SCROLL</option>
 						<option value="exit">CG_EXIT</option>
 				</field>
-				<field showon="trigger:delay" name="sp-delay" type="number" default="0" label="CG_DELAY_LBL" description="CG_DELAY_DESC" min="0" max="1000000" step="1000" />
-				<field showon="trigger:scroll" name="sp-scroll" type="number" default="100" label="CG_SCROLL_LBL" description="CG_SCROLL_DESC" min="0" max="2000" step="10" />
-				<field showon="trigger:scroll" name="sp-scroll-max" type="number" default="9999" label="CG_SCROLL_MAX_LBL" description="CG_SCROLL_MAX_DESC" min="0" max="9999" step="10" />
+				<field showon="trigger:delay" name="sp-delay" 
+                type="cgrange" class="limits buttons" unit="ms"
+                default="0" label="CG_DELAY_LBL" description="CG_DELAY_DESC" 
+                min="0" max="100000" step="1000" />
+				<field showon="trigger:scroll" name="sp-scroll" 
+                type="cgrange" class="limits buttons" unit="px"
+                default="100" 
+                label="CG_SCROLL_LBL" description="CG_SCROLL_DESC" 
+                min="0" max="2000" step="10" />
+				<field showon="trigger:scroll" name="sp-scroll-max" 
+                type="cgrange" class="limits buttons" unit="px"
+                default="9999" label="CG_SCROLL_MAX_LBL" description="CG_SCROLL_MAX_DESC" 
+                min="0" max="9999" step="10" />
 				<field name="show_btn_close_popup" type="radio" default="1" label="SHOW_BTN_POPUP_LABEL" description="SHOW_BTN_POPUP_DES" class="btn-group">
                     <option value="1">JYES</option>
 					<option value="0">JNO</option>
                 </field>
-				<field showon="show_btn_close_popup:1" name="cookie_duration" type="text" default="30" label="COOKIE_DURATION_LABEL" description="COOKIE_DURATION_DES" size="3" maxlength="3"/>
+				<field showon="show_btn_close_popup:1" name="cookie_duration" 
+                    type="cgrange" class="limits buttons" unit="d"
+                    default="30" label="COOKIE_DURATION_LABEL" description="COOKIE_DURATION_DES"
+                    min="0" max="365" step="1" />
 				<field showon="show_btn_close_popup:1" name="update_date_popup" type="calendar" default="" label="DATE_POPUP_LABEL" description="DATE_POPUP_DES" todaybutton="true" singleheader="true" format="%d-%m-%Y" showtime="false" class="input-small" >
                 </field>
 				<field showon="show_btn_close_popup:1" name="title_button_popup" type="radio" default="0" label="TITLE_BUTTON_LABEL" description="TITLE_BUTTON_DES" class="btn-group">
@@ -82,8 +96,8 @@
                 </field>
 				<field name="position" label="" type="subform" multiple ="false"
 				formsource="/modules/mod_cg_popup/mod_pos.xml" layout="joomla.form.field.subform.repeatable-table"/>
-				<field name="detail" label="" type="subform" multiple ="false" layout="joomla.form.field.subform.repeatable-table"
-				formsource="/modules/mod_cg_popup/mod_detail.xml" />
+				<field name="detail" label="" type="subform" multiple ="false" 
+				formsource="/modules/mod_cg_popup/mod_detail.xml" class="form-grid" />
 			
 				<field name="css_popup" type="textarea" label="CSS_POPUP_LABEL" description="CSS_POPUP_DES" cols="40" rows="4" filter="raw" 
 					default=".sp-popup .relative{ height:auto;width:100%;overflow:hidden;        } 

@@ -1,10 +1,9 @@
 <?php
 /**
-* CG Popup Module  - Joomla 4.x Module 
-* Version			: 2.3.1
+* CG Popup Module  - Joomla 4.x/5.x Module 
 * Package			: CG Popup
-* copyright 		: Copyright (C) 2023 ConseilGouz. All rights reserved.
-* license    		: http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+* copyright 		: Copyright (C) 2025 ConseilGouz. All rights reserved.
+* license    		: https://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
 */
 // No direct access to this file
 defined('_JEXEC') or die;
@@ -16,7 +15,7 @@ use Joomla\Filesystem\File;
 
 class mod_cg_popupInstallerScript
 {
-	private $min_joomla_version      = '4.0.0';
+	private $min_joomla_version      = '4.2.0';
 	private $min_php_version         = '7.4';
 	private $name                    = 'CG Popup';
 	private $exttype                 = 'module';
@@ -84,6 +83,7 @@ class mod_cg_popupInstallerScript
 			Folder::delete($f);
 		}
 		$obsloteFiles = [
+			sprintf("%s/modules/mod_%s/mod_cg_popup.php", JPATH_SITE, $this->extname),
 			sprintf("%s/modules/mod_%s/helper.php", JPATH_SITE, $this->extname),
 			sprintf("%s/modules/mod_%s/css_admin.css", JPATH_SITE, $this->extname),
 			sprintf("%s/media/mod_%s/js/velocity.min.js", JPATH_SITE, $this->extname),
@@ -194,5 +194,16 @@ class mod_cg_popupInstallerScript
 		$db->execute();
 		Factory::getCache()->clean('_system');
 	}
-	
+    public function delete($files = [])
+    {
+        foreach ($files as $file) {
+            if (is_dir($file)) {
+                Folder::delete($file);
+            }
+
+            if (is_file($file)) {
+                File::delete($file);
+            }
+        }
+    }
 }

@@ -1,0 +1,39 @@
+/**
+ * CG Memo Module for Joomla 4.x/5.x
+ *
+ * @author     ConseilgGouz
+ * @copyright (C) 2025 www.conseilgouz.com. All Rights Reserved.
+ * @license    GNU/GPLv3 https://www.gnu.org/licenses/gpl-3.0.html
+ */
+
+.cgrange-label, .cgrange-reset, .cgrange-plus, .cgrange-minus {
+/*    margin-left: 1em;*/
+    background-color: lightgrey;
+    height: 1.7em;
+    font-size: .9em;
+    border-radius: 5px;
+    padding: 2px 4px 4px 4px;
+}
+.form-cgrange {width:15em}
+/* Ajouter limits dans la classe pour afficher les limites */
+.form-cgrange.limits {
+    position: relative;
+}
+.for-cgrange.limits {
+    content: attr(value)
+}
+.form-cgrange.limits:after,
+.form-cgrange:before {
+    position: absolute;
+    top: 1.5em;
+    color: #aaa;
+}
+.form-cgrange.limits:before {
+    left:0em;
+    content: attr(min);
+}
+.form-cgrange.limits:after {
+    right: 0em;
+    content: attr(max);
+}
+

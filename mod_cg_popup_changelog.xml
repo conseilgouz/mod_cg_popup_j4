@@ -2,6 +2,18 @@
 	<changelog>
 		<element>mod_cg_popup</element>
 		<type>module</type>
+		<version>2.5.0</version>
+        <note>
+            <item>Update : 20/02/2025</item>
+        </note>
+		<change>
+			<item>Use Color picker or CSS color variables</item>
+			<item>Change parameters order and use grid-columns</item>
+		</change>
+	</changelog>
+	<changelog>
+		<element>mod_cg_popup</element>
+		<type>module</type>
 		<version>2.4.0</version>
         <note>
             <item>Update : 05/11/2023</item>

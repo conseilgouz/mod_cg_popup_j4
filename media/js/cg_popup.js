@@ -1,8 +1,7 @@
 /**
  * @package CG Popup Module for Joomla 4.X/5.x
- * @version 2.4.0 
  * @license https://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
- * @copyright (c) 2023 ConseilGouz. All Rights Reserved.
+ * @copyright (c) 2025 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
  * using https://animate.style/
  */
@@ -51,12 +50,14 @@ function go_popup(myid) {
 	let close_popup = document.querySelector('.sp-close-popup-'+myid);
 	sp_popup.style.width = options_popup[myid].width+"%";
 	sp_popup.style.backgroundColor = options_popup[myid].background;
+    sp_popup.style.color = options_popup[myid].font_color;
 	sp_popup.style.margin = options_popup[myid].margin ;
 	sp_popup.style.opacity = 0; // hide popup
 	sp_popup.style.display = 'none'; // hide popup
 	sp_popup.style.setProperty('--animate-duration', '800ms');
 	if (sp_button) {
 		sp_button.style.backgroundColor = options_popup[myid].background;
+        sp_button.style.color = options_popup[myid].font_color;
 		sp_button.style.position = "fixed";
 		sp_button.style.display = 'none';
 		sp_button.style.opacity = 0; 
