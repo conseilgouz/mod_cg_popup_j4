@@ -7,8 +7,6 @@
  */
 defined('_JEXEC') or die;
 use Joomla\CMS\Factory;
-use Joomla\CMS\HTML\HTMLHelper;
-use Joomla\CMS\Helper\ModuleHelper;
 use Joomla\CMS\Uri\Uri;
 
 $app = Factory::getApplication();
