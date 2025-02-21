@@ -36,7 +36,7 @@ $color = $detail->color_popup;
 
 if (!isset($detail->type_color)) {
     $color = $detail->color_popup;
-    $font_color = '#fff'; // default
+    $font_color = '#000'; // default black
 } else {
     if ($detail->type_color == 'pick') { // color picker
         $color = $detail->color_popup;
