@@ -8,6 +8,8 @@
         </note>
 		<fix>
 			<item>Set default font color to black</item>
+			<item>Variable font color : missing var()</item>
+			<item>Color type rules error in picker mode</item>
 		</fix>
 	</changelog>
 	<changelog>
