@@ -43,7 +43,7 @@ if (!isset($detail->type_color)) {
         $font_color = $detail->color_font;
     } else {// CSS variable
         $color = 'var('.$detail->color_var.')';
-        $font_color = $detail->font_var;
+        $font_color = 'var('.$detail->font_var.')';
     }
 }
 

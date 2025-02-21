@@ -22,11 +22,9 @@ class VariableRule extends FormRule
     public function test(\SimpleXMLElement $element, $value, $group = null, ?Registry $input = null, ?Form $form = null)
     {
         // get showon to find field name
-        $showon = (string)$element['showon'];
-        $el = explode(':', $showon);
-        $type = $el[0];
-        $params = $input->get('params');
-        if ($params->$type  == 'pick') { // color picker : exit
+        // $showon = (string)$element['showon'];
+        $type = $input->get('type_color');
+        if ($type  == 'pick') { // color picker : exit
             return true;
         }
         if (!$value) {
