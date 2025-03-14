@@ -8,7 +8,7 @@
 
 .cgrange-label, .cgrange-reset, .cgrange-plus, .cgrange-minus {
 /*    margin-left: 1em;*/
-    background-color: var(--btn-primary-color);
+    background-color: var(--btn-primary-bg);
 	color: var(--btn-primary-color);
     height: 1.7em;
     font-size: .9em;
