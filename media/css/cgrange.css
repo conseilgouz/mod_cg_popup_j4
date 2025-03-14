@@ -8,7 +8,8 @@
 
 .cgrange-label, .cgrange-reset, .cgrange-plus, .cgrange-minus {
 /*    margin-left: 1em;*/
-    background-color: lightgrey;
+    background-color: var(--btn-primary-color);
+	color: var(--btn-primary-color);
     height: 1.7em;
     font-size: .9em;
     border-radius: 5px;
@@ -19,14 +20,11 @@
 .form-cgrange.limits {
     position: relative;
 }
-.for-cgrange.limits {
-    content: attr(value)
-}
 .form-cgrange.limits:after,
 .form-cgrange:before {
     position: absolute;
     top: 1.5em;
-    color: #aaa;
+    color: var(--login-label-color);
 }
 .form-cgrange.limits:before {
     left:0em;

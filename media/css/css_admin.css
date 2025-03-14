@@ -33,7 +33,7 @@
 
 /* detail subform */
 .control-group:nth-of-type(14) { 
-    background-color:aliceblue !important; 
+    background-color:#b9c2cf; 
     padding-top: 15px;
     margin-top: -2em;
     grid-column:1/6
