@@ -9,7 +9,7 @@
 
 namespace ConseilGouz\Module\CGPopup\Site\Field;
 
-defined('JPATH_PLATFORM') or die;
+defined('_JEXEC') or die;
 use Joomla\CMS\Form\Field\RangeField;
 use Joomla\CMS\Factory;
 
