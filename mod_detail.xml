@@ -3,7 +3,7 @@
 	<config>         
 		<inlinehelp button="show"/>     
 	</config>
-     <fieldset name="section1" addruleprefix="ConseilGouz\Module\CGPopup\Site\Rule">
+     <fieldset name="section1" addruleprefix="ConseilGouz\Library\Rule">
 		<field name="width_popup" type="cgrange" class="limits buttons" 
             default="100" min="5" max="100" step="1" unit="%"
             label="WIDTH_POPUP_LABEL" description="WIDTH_POPUP_DES" />
@@ -22,10 +22,10 @@
 		<field showon="type_color:pick" name="color_font" type="color" 
             format="rgb" default="rgb(46, 38, 39)" 
             label="CG_POPUP_COLOR_FONT_LABEL" description="CG_POPUP_COLOR_FONT_DES"/>
-		<field showon="type_color:var" name="color_var" type="text" default="" 
+		<field showon="type_color:var" name="color_var" type="cgvariable" default="" 
             label="CG_POPUP_COLOR_POPUP_LABEL" description="CG_POPUP_VAR_DES" 
             validate="variable"/>
-		<field showon="type_color:var" name="font_var" type="text" default="" 
+		<field showon="type_color:var" name="font_var" type="cgvariable" default="" 
             label="CG_POPUP_COLOR_FONT_LABEL" description="CG_POPUP_VAR_FONT_DES" 
             validate="variable"/>
 	</fieldset>
