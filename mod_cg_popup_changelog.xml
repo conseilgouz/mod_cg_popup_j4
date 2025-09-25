@@ -2,6 +2,20 @@
 	<changelog>
 		<element>mod_cg_popup</element>
 		<type>module</type>
+		<version>2.6.1</version>
+        <note>
+            <item>Update : 02/07/2025</item>
+        </note>
+		<fix>
+			<item>Joomla 6 compatibility</item>
+		</fix>
+		<change>
+			<item>Use ConseilGouz library</item>
+		</change>
+	</changelog>
+	<changelog>
+		<element>mod_cg_popup</element>
+		<type>module</type>
 		<version>2.6.0</version>
         <note>
             <item>Update : 02/07/2025</item>

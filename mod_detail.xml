@@ -17,10 +17,10 @@
             <option value="var">CG_POPUP_COLOR_VAR</option>
 		</field>
 		<field showon="type_color:pick" name="color_popup" type="color" 
-            format="rgb" default="rgba(255, 99, 132)" 
+            format="rgb" default="rgb(183, 226, 235)" 
             label="CG_POPUP_COLOR_POPUP_LABEL" description="CG_POPUP_COLOR_POPUP_DES"/>
 		<field showon="type_color:pick" name="color_font" type="color" 
-            format="rgb" default="rgba(255, 99, 132)" 
+            format="rgb" default="rgb(46, 38, 39)" 
             label="CG_POPUP_COLOR_FONT_LABEL" description="CG_POPUP_COLOR_FONT_DES"/>
 		<field showon="type_color:var" name="color_var" type="text" default="" 
             label="CG_POPUP_COLOR_POPUP_LABEL" description="CG_POPUP_VAR_DES" 

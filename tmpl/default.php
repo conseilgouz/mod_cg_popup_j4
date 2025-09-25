@@ -78,7 +78,7 @@ $pos = $params->get('position');
 $class .= " popup-".$pos->horizontal_popup.$moduleclass_sfx."'";
 $class_pos = " popup-".$pos->horizontal_popup.$moduleclass_sfx;
 $cookieName = 'cg_popup_'.$module->id;
-$cookieValue = Factory::getApplication()->input->cookie->get($cookieName);
+$cookieValue = Factory::getApplication()->getInput()->cookie->get($cookieName);
 echo '<div class="cg_popup_main" id = "cg_popup_'.$module->id.'" data="'.$module->id.'">';
 if ($params->get('title_button_popup', '0') == 1) { // show title button if cookie present
     echo '<div id="btn_'.$tag_id.'" '.$class.'><button id="le_btn_'.$tag_id.'" class="cg_popup_btn'.$class_pos.'" type="button">'.$module->title.'</button></div>';
