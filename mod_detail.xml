@@ -3,7 +3,7 @@
 	<config>         
 		<inlinehelp button="show"/>     
 	</config>
-     <fieldset name="section1" addruleprefix="ConseilGouz\Library\Rule">
+     <fieldset name="section1" addruleprefix="ConseilGouz\Module\CGPopup\Site\Rule">
 		<field name="width_popup" type="cgrange" class="limits buttons" 
             default="100" min="5" max="100" step="1" unit="%"
             label="WIDTH_POPUP_LABEL" description="WIDTH_POPUP_DES" />
